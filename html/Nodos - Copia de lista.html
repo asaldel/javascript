@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<ul id="lista1">
+			<li>Hamburguesa</li>
+			<li>Papas fritas</li>
+			<li>Espaguetis</li>
+			<li>Ensalada</li>
+		</ul>
+
+		<ul id="lista2"></ul>
+
+		<button type="button" onclick="copiar('lista1', 'lista2')">Copiar</button>
+
+		<script>
+			function copiar(listaOrigen, listaDestino){
+				let lista1 = document.getElementById(listaOrigen);
+				let lista2 = document.getElementById(listaDestino);
+
+				if(lista1 == null || lista2 == null){
+					alert("Error. La lista es nula");
+					return false;
+				}
+				
+				let e1 = lista1.firstElementChild;
+				let last2 = lista2.lastElementChild;
+				
+				if(last2 == null){
+					lista2.appendChild(lista1.firstElementChild.cloneNode(true));
+				}
+				else{
+					while(!last2.isEqualNode(e1) && e1 != null){
+						e1 = e1.nextElementSibling;
+					}
+					if(e1 != null){
+						e1 = e1.nextElementSibling;
+						if(e1 != null){
+							lista2.appendChild(e1.cloneNode(true));
+						}
+					}
+				}	
+			}
+		</script>
+	</body>
+</html>

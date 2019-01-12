@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+
+        <style type="text/css">
+            td {
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" style="text-align:center">
+            <tr>
+                <td class="f1 c1">3</td>
+                <td class="f1 c2">12</td>
+                <td class="f1 c3">8</td>
+                <td class="f1 c4">21</td>
+                <td class="f1 c5">54</td>
+                <td id="f1_tot"></td>
+            </tr>
+            <tr>
+                <td class="f2 c1">54</td>
+                <td class="f2 c2">2</td>
+                <td class="f2 c3">76</td>
+                <td class="f2 c4">34</td>
+                <td class="f2 c5">86</td>
+                <td id="f2_tot"></td>
+            </tr>
+            <tr>
+                <td class="f3 c1">45</td>
+                <td class="f3 c2">28</td>
+                <td class="f3 c3">1</td>
+                <td class="f3 c4">18</td>
+                <td class="f3 c5">98</td>
+                <td id="f3_tot"></td>
+            </tr>
+            <tr>
+                <td class="f4 c1">56</td>
+                <td class="f4 c2">12</td>
+                <td class="f4 c3">76</td>
+                <td class="f4 c4">25</td>
+                <td class="f4 c5">63</td>
+                <td id="f4_tot"></td>
+            </tr>
+            <tr>
+                <td id="c1_tot"></td>
+                <td id="c2_tot"></td>
+                <td id="c3_tot"></td>
+                <td id="c4_tot"></td>
+                <td id="c5_tot"></td>
+                <td></td>
+            </tr>
+        </table>
+        <button type="button" onclick="calcular()">Calcular</button>
+    </body>
+
+    <script>
+        function calcular() {
+            const NROWS = 4;
+            let tot = 0;
+            let DATA = { f: 4, c: 5 };
+
+            for (tipo in DATA) {
+                for (let i = 1; i <= DATA[tipo]; i++) {
+                    filas = document.getElementsByClassName(tipo + i);
+                    tot = 0;
+                    for (let j = 0; j < filas.length; j++) {
+                        tot += +filas[j].innerText;
+                    }
+                    obj = document.getElementById(tipo + i + "_tot");
+                    if (obj != null) {
+                        obj.innerText = tot;
+                        obj.style = "font-weight:bold;"
+                    }
+                }
+            }
+        } 
+    </script>
+</html>

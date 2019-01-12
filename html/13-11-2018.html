@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- nodetype:                      nodeName:                   nodeValue:  
+            1. Elemento                     ETIQUETA                    null
+            2. Attr
+            3. Texto                        #text                       texto
+            8. Comentarios                  #coment                     comentario
+            9. Document                     #document                   null
+            10. doctype                     html                        null        -->                 
+        <input type="text">
+        <select name="" id="">
+            <option value="">XXX</option>
+            <option value="">XXX</option>
+            <option value="">XXX</option>
+            <option value="">XXX</option>
+            <option value="">XXX</option>
+        </select>
+        <button type="button">Botón</button>
+        <p contenteditable>Hola Mundo</p>
+
+    </body>
+
+    <script>
+        /*console.log(document.nodeName, document.nodeValue, document.nodeType);
+        console.log(document.parentNode);
+        // children solo saca elementos, childNodes saca cualquier nodo
+        console.log("Hijos:", document.children.length);
+        console.log("Hijos:", document.children[0].nodeName);
+        console.log("Hijos:", document.childNodes.length);
+        console.log("Hijo 1:", document.firstChild.nodeName, document.firstChild.nodeValue, document.firstChild.nodeType);
+        console.log("Hijo 2:", document.lastChild.nodeName, document.lastChild.nodeValue, document.lastChild.nodeType);*/
+
+        function showInfo(e, obj, isElement=false){
+
+            function show(txt, o){
+                console.log(txt, o.tagName, o.nodeName, o.nodeValue, o.nodeType);
+            }
+            console.clear();
+            
+            e.stopPropagation();
+            e.preventDefault();
+
+            
+            show("Yo", obj);
+            // Mis hijos
+            let hijos = (isElement) ? obj.children : obj.childNodes;
+            console.log("Tengo", hijos.length, "hijos");
+            for(let i = 0; i < hijos.length; i++){
+                show("Hijo " + i, hijos[i]);
+            }
+
+            // Atributos 
+            let attr = obj.attributes;
+            console.log("Atributos", attr.length);
+            for(let i = 0; i < attr.length; i++){
+                show("Atributo " + i, attr[i]);
+            }
+
+            let objHerm = obj.nextSibling;
+            while(objHerm != null){
+                show("Hermano", objHerm);
+                objHerm = objHerm.nextSibling;
+            }
+
+        }
+
+        window.onload = function(){
+            let todos = document.querySelectorAll("*");
+            for(let i = 0; i < todos.length; i++){
+                todos[i].onclick = function(e){
+                    showInfo(e, todos[i], true);
+                };
+                todos[i].ondblclick = function(e){
+                    showInfo(e, todos[i], false);
+                };
+            }
+        }
+    </script>
+</html>

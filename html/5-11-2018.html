@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2ª forma de crear evento (forma semántica)
+        // Carga el Javascript cuando se ha terminado de crear la página
+        /* window.onload = function(){
+            let obj = document.getElementById('prb');
+            if(obj != null){
+                obj.onclick = function(e) {
+                    // let e = arguments[0]; // El evento SIEMPRE se recibe
+                    mostrar(e, obj, 'input');
+                };
+            }
+            else{
+                console.error("¡input no existe!")
+            }
+        };*/
+        
+        // 3ª forma de crear evento (AddEventListener)
+        /*window.onload = function(){
+            let obj = document.getElementById('prb');
+            if(obj != null){
+                obj.addEventListener("click", function(){
+                    mostrar(arguments[0], obj, "input");
+                });
+            }
+        }*/
+        
+        window.onload = function(){
+            let div = document.getElementById("div");
+            let form = document.getElementById("form");
+            let input = document.getElementById("prb");
+
+            div.addEventListener("click", function(){
+                alert("Soy un div");
+            }, true);
+
+            form.addEventListener("click", function(){
+                alert("Soy un form");
+            }, false);
+
+            input.addEventListener("click", function(){
+                alert("Soy un input");
+            }, true);
+        }
+        
+        function mostrar(e, obj, txt){
+            let msg = "";
+            msg += obj.value + '\n';
+            msg += ' X: ' + e.clientX + ' Y: ' + e.clientY + '\n';
+            msg += 'Soy un ' + txt;
+            alert(msg)
+        }
+    </script>
+
+    <div id="div">
+        <form id="form" action="">
+            <!-- 1ª forma de crear evento (en línea) -->
+            <!--  <input type="text" onclick="mostrar(event, this, 'input');">-->
+            <input id="prb" type="text">
+        </form>
+    </div>
+</body>
+</html>

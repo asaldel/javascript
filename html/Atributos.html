@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<select name="prb" id="prb">
+			<option value="">XXX</option>
+			<option value="">XXX</option>
+			<option value="">XXX</option>
+			<option value="">XXX</option>
+			<option value="">XXX</option>
+		</select>
+
+		<a href="/prueba.html" id="a1">Enlace</a>
+
+		<script>
+			window.onload = function(){
+				let sel = document.getElementById("prb");
+
+				// Forma tradicional de modificar atributos
+				sel.name = "prb2";
+
+				// Forma moderna de modificar atributos
+				sel.setAttribute("name", "prb3");
+				
+				// Mostrar el valor del atributo name
+				alert(sel.getAttribute("name"));
+				
+				// Añadir otro atributo
+				sel.setAttribute("name2", "prb32");
+
+				let a1 = document.getElementById("a1");
+				// Muestra el valor del atributo href
+				alert(a1.getAttribute("href"));
+				// Muestra la ruta expandida del href
+				alert(a1.href);
+				
+				// Deshabilitar elemento
+				// sel.disabled = true;
+
+				// Deshabilitar elemento
+				// sel.setAttribute("disabled", true);
+
+				// Habilitar elemento
+				// sel.disabled = false;
+
+				// Habilitar elemento
+				// sel.setAttribute("disabled", false);
+
+				// Eliminar atributo disabled
+				sel.removeAttribute("disabled");
+
+				// Ver si el elemento tiene el atributo disabled
+				alert(sel.hasAttribute("disabled"));
+
+				// Ver si el elemento tiene atributos 
+				alert(sel.hasAttributes());
+			}
+		</script>
+	</body>
+</html>

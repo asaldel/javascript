@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+		<form action="">
+			<input type="text" id="i1" name="i1">
+			<button type="button" onclick="addInput(this);">+</button>
+		</form>
+
+		<script>
+			function addInput(obj){
+				let input = document.createElement("INPUT");
+				let button = document.createElement("BUTTON");
+				let div = document.createElement("DIV");
+				
+				input.setAttribute("type", "text");
+				input.setAttribute("id", "");
+				input.setAttribute("name", "");
+				
+				
+				let buttonText = document.createTextNode("-");
+				button.appendChild(buttonText);
+				button.setAttribute("type", "button");
+				button.addEventListener("click", function(){
+					button.parentElement.remove();
+					
+				});
+
+				div.appendChild(input);
+				div.appendChild(button);
+
+				obj.parentElement.appendChild(div);
+			}
+		</script>
+    </body>
+</html>

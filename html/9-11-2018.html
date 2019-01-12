@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*input{
+            background-color: rgb(131, 127, 127);
+        }
+
+        input:valid{
+            background-color: rgb(195, 218, 195);
+        }
+
+        input:invalid{
+            background-color: rgb(219, 159, 187);
+        }*/
+
+        .i_vacio{
+            background-color: rgb(131, 127, 127);
+        }
+
+        .i_ok{
+            background-color: rgb(195, 218, 195);
+        }
+
+        .i_error{
+            background-color: rgb(219, 159, 187);
+        }
+    </style>
+</head>
+<body>
+    <!-- Validación -->
+    <form id="frm1" name="frm1" method="GET">
+        <input type="text" id="prb" onclick="alert(this.checkValidity() + ' - ' + this.validity.patternMismatch)" pattern="^[0-9]+$">
+        <input type="text" id="prb" onclick="alert(this.checkValidity() + ' - ' + this.validity.patternMismatch)" pattern="^[0-9]+$">
+        <input type="text" id="prb" onclick="alert(this.checkValidity() + ' - ' + this.validity.patternMismatch)" pattern="^[0-9]+$">
+        <input type="text" id="prb" onclick="alert(this.checkValidity() + ' - ' + this.validity.patternMismatch)" pattern="^[0-9]+$">
+        <button type="submit">Enviar</button>
+
+        <input type="text" id="prb" class="pepito juanito andres" onclick="alert(this.className)" pattern="^[0-9]+$" autofocus>
+        <!-- classList:
+                - .add
+                - .remove
+                - .toggle
+                - .replace
+                - .contains
+                - .item
+         -->
+        <input type="text" id="prb" class="pepito juanito andres" onclick="this.classList.add('i_error');" pattern="^[0-9]+$">
+
+        <br><br>
+
+        <!-- disabled y readonly -->
+        <input type="text" value="AAA" onclick="alert('x')">
+        <div onclick="alert('x')"><input type="text" value="AAA1" disabled></div>
+        <input type="text" value="AAA2" onclick="alert('x')" readonly>
+    </form> 
+
+    <script>
+        window.onload = function(){
+            //document.getElementById("prb").setCustomValidity("Debe ser un número entero");
+            // oninvalid -> setCustomValidity("x")
+            // oninput -> setCustomvalidity("")
+        }
+    </script>
+</body>
+</html>

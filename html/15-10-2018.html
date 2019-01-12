@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+  </head>
+  <body>
+        <ul>
+            <script>
+                // Objeto navigator
+                let obj = window.navigator;
+                for(let prop in obj){
+                    if(typeof obj[prop] == 'function' || typeof obj[prop] == 'object'){
+                        document.write();
+                    }
+                    else{
+                        document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+                    }
+                }  
+            </script>
+        </ul>
+  </body>
+</html>

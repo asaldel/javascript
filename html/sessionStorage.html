@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        
+	</body>
+	<script>
+		// Storage: localStorage o sessionStorage
+		// setItem("k", "v");
+		// getItem("k");
+
+		if(Storage){
+			sessionStorage.setItem("prb", "10");
+			sessionStorage.setItem("prb1", "101");
+			sessionStorage.setItem("prb2", "102");
+			sessionStorage.setItem("prb3", "103");
+			sessionStorage.setItem("prb4", "104");
+			sessionStorage.setItem("prb5", "105");
+			sessionStorage.setItem("prb6", "106");
+			
+			for(let i = 0; i < sessionStorage.length; i++){
+				let key = sessionStorage.key(i);
+				console.log(key, "-" , sessionStorage.getItem(key));
+			}
+			
+			sessionStorage.removeItem("prb5");
+			// sessionStorage.clear();
+		}
+		else{
+			alert("Error. No se soporta Storage");
+		}
+	</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /* 
+                <nombre>=<valor>; 
+                expires=<fecha>; 
+                max-age=<segundos>; 
+                path=<ruta>; 
+                domain=<dominio>; 
+                secure; 
+                httponly
+                sameSite
+             */
+            document.cookie = "clase=DEW;secure=true;max-age=7200;path=/";
+            document.cookie = "curso=DAW;max-age=3600;expires=" + getExpires(7200);
+            alert(getExpires(7200));
+            document.cookie = "aaa = bbb";
+
+            // time -> tiempo de expiración en segundos
+            function getExpires(sec){
+                fecha = new Date();
+
+                time_ms = fecha.getTime();
+                time_ms += sec * 1000; // Le sumo los segundos convertidos en ms
+                fecha.setTime(time_ms);
+                return fecha.toUTCString();
+            }
+
+            function assingCookie(nombre, valor, sec){
+                if(sec == undefined){
+                    document.cookie = nombre + "=" + encodeURIComponent(valor);
+                }
+                else{
+                    document.cookie = nombre + "=" + encodeURIComponent(valor) + ";max-age=" + sec; 
+                }
+                
+            }
+            
+            function leerCookies(){
+                let cookies = document.cookie;
+                let mapa = new Map();
+                
+                arraycookies = cookies.split(";");
+                
+                for(cookie of arraycookies){
+                    let datosCookie = cookie.split("=");
+                    mapa.set(datosCookie[0], datosCookie[1]);
+                }
+                
+                console.log(mapa);
+            }
+
+            assingCookie("cookie1","cookie1");
+            assingCookie("cookie2","cookie2",7200);
+
+            leerCookies();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+  </head>
+  <body>
+        <script>
+          let css = "background-color: red; color:yellow; font-size:20px";
+          let url = "http://miservidor/prueba/esto es un fichero.pdf";
+          console.log(url);
+          // decodeURI - decodeURIComponent
+          console.debug("Hola");
+          console.info("Hola");
+          console.log(encodeURI(url));
+          console.log(encodeURIComponent(url));
+          console.log("%cHola", css);
+          console.warn("Hola");
+          console.error("Hola");
+          
+          
+          for(let x = 0; x < 10; x++){
+            console.count();
+            console.count("dentro de bucle");
+            console.assert(x != 3, "ERROR: el valor no es correcto");
+          }
+          console.clear();
+          
+          // console.group() - console.groupCollapsed() - console.groupEnd()
+          console.groupCollapsed("Dentro de la función prueba");
+          console.log("gjgfjf");
+          console.log("gjgfjf");
+          console.log("gjgfjf");
+          console.log("gjgfjf");
+          console.log("gjgfjf");
+          console.groupEnd();
+
+          console.time("T1");
+          let y = 0;
+          for (let x = 1; x <= 10000; x++){
+            console.time("T2");
+            y += Math.sqrt(x);
+            console.timeEnd("T2");
+          }
+          console.log(y);
+          console.timeEnd("T1");
+
+          let yy = {};
+          let arr = [];
+          for (let x = 1; x <=10; x++){
+            arr.push({ edad: x*10, altura: x*100, dni: x*1000});
+          }
+          console.table(arr);
+        </script>
+  </body>
+</html>

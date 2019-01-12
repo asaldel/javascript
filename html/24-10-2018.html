@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<title>Title</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+  </head>
+  <body>
+		<script>
+			// JavaScript solo hace hoisting con métodos y variables declaradas con 'var' (no constantes ni declaraciones con 'let'). Solo sube la declaración, no la asignación
+			console.log(xxxx);
+			var xxxx = 4;
+			console.log(prb(5));
+
+			//<![CDATA[
+				if(xxxx > 5){
+
+				}
+			//]]>
+
+			function prb(x){
+				return x**2;
+			}
+					
+			/*let obj = window.document;
+			for(let prop in obj){
+				document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+			}*/
+		</script>
+
+		<div id="div1">543</div>
+		<div id="div2">345345</div>
+		<p id="p1">34534</p>
+		<p id="p2" style="width:200px; border:1px red solid;">345543</p>
+
+
+		<script>
+			obj = document.getElementById("p2");
+			if(obj != null){
+				// alert(obj);
+				obj.style.color = "green";
+			}
+			else{
+				alert("El id no existe");
+			}
+
+			obj = document.getElementById("div1");
+			if(obj != null){
+				console.log(obj.innerHTML);
+				console.log(obj.outerHTML);
+				console.log(obj.innerText);
+				console.log(obj.textContent);
+
+				obj.innerHTML = "<h1>Hola</h1>";
+				//obj.innerText = "Hola";
+
+				obj.style.width = "400px";
+				obj.style.backgroundColor = "green";
+			}
+		</script>
+
+		<a href="http://www.google.es" id="link1">Google</a>
+		<script>
+			obj = document.getElementById("link1");
+			if(obj != null){
+				obj.target = "_blank";
+				obj.href="http://www.w3schools.com";
+				obj.style.color = "red";
+				obj.style.width = "200px";
+				obj.style.backgroundColor = "blue";
+
+				console.log(obj.hasAttribute("style"));
+				console.log(obj.getAttribute("target"));
+				obj.removeAttribute("style");
+				console.log(obj.hasAttribute("style"));
+				obj.setAttribute("style", "background-color:red;");
+				console.log(obj.hasAttribute("style"));
+			}
+		</script>
+
+		<script>
+			console.log(document.getElementsByTagName("div"));
+		</script>
+  </body>
+</html>

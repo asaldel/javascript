@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		#tablero{
+			border: 1px solid grey;
+			width: 400px;
+			height: 400px;
+			background-color: #FC9A9A;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="tablero" width="400px" height="400px"></canvas>
+	<br>
+	<button id="comenzar" onclick="this.innerText='Cargando...',setTimeout(init, 2000)">Comenzar</button>
+	<p>La velocidad es: <span id="velocidad"></span></p>
+
+	<script>
+		function init(){
+			let tablero = document.getElementById("tablero");
+			if(tablero != null){
+				let ctx = tablero.getContext("2d");
+				if(ctx != null){
+					let width = ctx.canvas.clientWidth;
+					let height = ctx.canvas.clientHeight;
+					alert("Empezar");
+
+					let bola = {
+						x:width/2, 
+						y:height/2, 
+						rad:20,
+						dx:1, 
+						dy:1, 
+						dx_s:1, 
+						dy_s:1 
+					};
+					
+					// Dibuja la bola
+					bola.timer = setInterval(function(){
+						draw(bola, ctx)}, 15);
+					
+					// Cambiar la velocidad
+					document.onkeydown = function(e){
+						changeSpeed(e, bola, ctx);
+					}
+				}
+			}
+		}
+
+		function draw(obj, ctx){
+			let width = ctx.canvas.clientWidth;
+			let height = ctx.canvas.clientHeight;
+			
+			ctx.clearRect(0, 0, width, height);
+			
+			// Dibujo de la bola
+			ctx.beginPath();
+			ctx.fillStyle = "blue";
+			// arc(x, y, radio, anguloInicio, anguloFin)
+			ctx.arc(obj.x, obj.y, obj.rad, 0, 2 * Math.PI);
+			ctx.fill();
+			
+			// Calculo del rebote en X
+			if((obj.x + obj.rad >= width) || (obj.x <= obj.rad)){
+				obj.dx_s = - obj.dx_s;
+			} 
+
+			// Calculo del rebote en Y
+			if((obj.y + obj.rad >= height) || (obj.y <= obj.rad)){
+				obj.dy_s = - obj.dy_s;
+			} 
+			
+			// Actualizo la posición en X e Y
+			obj.x += obj.dx * obj.dx_s;
+			obj.y += obj.dy * obj.dy_s;
+		}
+
+		function changeSpeed(e, obj, ctx){
+			let key = e.keyCode || e.which || 0;
+			const INC = 1;
+			switch(key){
+				case 37:
+					obj.dx = Math.max(0, obj.dx-INC);
+					break;
+				case 38: 
+					obj.dy += 1;
+					break;
+				case 39: 
+					obj.dx += 1;
+					break;
+				case 40:
+					obj.dy = Math.max(0, obj.dy-INC);;
+					break;
+				case 65:
+					clearInterval(obj.timer);
+					break;
+				case 90:
+					obj.timer = setInterval(function(){
+						draw(obj, ctx)}, 15);
+					break;			
+			}
+
+			document.getElementById("velocidad").innerText = (key == 65) ? "pause" : "DX: " + obj.dx + " DY: " + obj.dy;
+		}
+	</script>
+</body>
+</html>

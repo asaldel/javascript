@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Title</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<form id="id_frm1" name="name_frm1" method="GET" action="">
+			<fieldset>
+				<legend>Mis datos</legend>
+				<label for="id_i1">Nombre:</label>
+				<input type="text" id="id_i1" name="name_i1">
+				<br>
+				<label for="id_i2">Apellidos:</label>
+				<input type="text" id="id_i2" name="name_i2">
+				<br>
+				<label for="id_i3">Edad:</label>
+				<input type="text" id="id_i2" name="name_i2">
+				<br>
+				<label for="id_c1">Permiso:</label>
+				<input type="checkbox" id="ic_c1">
+				<br>
+				<label for="name_ta1">Comentarios:</label>
+				<textarea name="name_ta1" id="id_ta1" cols="30" rows="10"></textarea>
+				<br>
+				<label for="id_s1">Tipo:</label>
+				<select name="name_s1" id="id_s1">
+                    <optgroup label="Vocales">
+                        <option value="A">A</option>
+                    </optgroup>
+                    <optgroup label="Consonantes">
+                        <option value="B">B</option>
+                        <option value="C" selected>C</option>
+                        <option value="D">D</option>
+                    </optgroup>
+                    
+                </select>
+                <br>
+                <label for="id_chk">Casilla:</label>
+                <input type="checkbox" id="id_chk" name="name_chk" value="marcado">
+                <br>
+                <label for="ciudad">Mi ciudad:</label>
+                <input type="text" id="ciudad" name="prueba" list="misdatos">
+                <datalist id="misdatos">
+                    <option value="Puerto de la Cuz" label="Puerto Cruz">
+                    <option value="Santa Cuz">
+                    <option value="Icod de los Vinos">
+                </datalist>
+                <br>
+				<button type="submit">Enviar</button>
+				<button type="button" onclick="alert(this.form.name_i1.value);">Mostrar valor del nombre</button>
+				<button type="button" onclick="alert(this.form.name_ta1.value);">Mostrar valor del textarea</button>
+				<button type="button" onclick="alert(this.form.name_s1.options[this.form.name_s1.selectedIndex].value);">Mostrar valor del select</button>
+			</fieldset>
+        </form>
+        
+        <form id="id_frm2" name="name_frm2" method="GET" action="">
+			<fieldset>
+				<legend>Mis datos</legend>
+				<label for="id_i1">Nombre:</label>
+				<input type="text" id="id_i1" name="name_i1">
+				<br>
+				<label for="id_i2">Apellidos:</label>
+				<input type="text" id="id_i2" name="name_i2">
+				<br>
+				<label for="id_i3">Edad:</label>
+				<input type="text" id="id_i2" name="name_i2">
+				<br>
+				<label for="id_c1">Permiso:</label>
+				<input type="checkbox" id="ic_c1">
+				<br>
+				<label for="name_ta1">Comentarios:</label>
+				<textarea name="name_ta1" id="id_ta1" cols="30" rows="10"></textarea>
+				<br>
+				<label for="id_s1">Tipo:</label>
+				<select name="name_s1" id="id_s1">
+                    <optgroup label="Vocales">
+                        <option value="A">A</option>
+                    </optgroup>
+                    <optgroup label="Consonantes">
+                        <option value="B">B</option>
+                        <option value="C" selected>C</option>
+                        <option value="D">D</option>
+                    </optgroup>
+                    
+                </select>
+                <br>
+                <label for="id_chk">Casilla:</label>
+                <input type="checkbox" id="id_chk" name="name_chk" value="marcado">
+                <br>
+                <label for="ciudad">Mi ciudad:</label>
+                <input type="text" id="ciudad" name="prueba" list="misdatos">
+                <datalist id="misdatos">
+                    <option value="Puerto de la Cuz" label="Puerto Cruz">
+                    <option value="Santa Cuz">
+                    <option value="Icod de los Vinos">
+                </datalist>
+                <br>
+				<button type="submit">Enviar</button>
+				<button type="button" onclick="alert(this.form.name_i1.value);">Mostrar valor del nombre</button>
+				<button type="button" onclick="alert(this.form.name_ta1.value);">Mostrar valor del textarea</button>
+                <button type="button" onclick="alert(this.form.name_s1.options[this.form.name_s1.selectedIndex].value);">Mostrar valor del select</button>
+                <br>
+                <input type="checkbox" id="ic_c1" checked>
+                <br>
+                <input type="checkbox" id="ic_c2">
+                <br>
+                <input type="checkbox" id="ic_c3" checked>
+                <br>
+                <input type="checkbox" id="ic_c4">
+                <br>
+                <input type="checkbox" id="ic_c5" checked>
+                <br>
+                <input type="checkbox" id="ic_c6" checked>
+                <br>
+                <input type="checkbox" id="ic_c7">
+                <br>
+                <button type="button" onclick="seleccionarTodos()">Seleccionar todos</button>
+				<button type="button" onclick="deseleccionarTodos()">Deseleccionar todos</button>
+                <button type="button" onclick="invertirSeleccion()">Invertir selección</button>
+			</fieldset>
+		</form>
+
+		<script>
+			console.log(document.getElementById("id_frm1"));
+			console.log(document.forms[0]);
+			console.log(document.forms["id_frm1"]);
+			console.log(document.forms["name_frm1"]);
+			console.log(document.forms.id_frm1);
+			console.log(document.forms.name_frm1);
+			console.log(document.id_frm1);
+            console.log(document.name_frm1);
+            
+            list = document.forms.name_frm2.getElementsByTagName("input");
+            for(let i = 0; i < list.length; i++){
+                if(list[i].type == "text"){
+                    list[i].style.background = "red";
+                }
+            }
+
+            list = document.forms.name_frm2.getElementsByTagName("textarea");
+            for(let i = 0; i < list.length; i++){
+                list[i].style.background = "blue";
+            }
+
+            function seleccionarTodos(){
+                list = document.getElementsByTagName("input");
+                for(let i = 0; i < list.length; i++){
+                    if(list[i].type == "checkbox"){
+                        list[i].checked = true;
+                    }
+                }
+            }
+
+            function deseleccionarTodos(){
+                list = document.getElementsByTagName("input");
+                for(let i = 0; i < list.length; i++){
+                    if(list[i].type == "checkbox"){
+                        list[i].checked = false;
+                    }
+                }
+            }
+
+            function invertirSeleccion(){
+                list = document.getElementsByTagName("input");
+                for(let i = 0; i < list.length; i++){
+                    if(list[i].type == "checkbox" && list[i].checked == true){
+                        list[i].checked = false;
+                    }
+                    else{
+                        list[i].checked = true;
+                    }
+                }
+            }
+		</script>
+	</body>
+</html>

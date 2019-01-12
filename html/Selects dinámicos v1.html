@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" name="form" id="form">
+        <select name="curso" id="curso" onchange="cambiarSelect();">
+            <option value="curso" selected>Seleccione curso...</option>
+            <option value="1DAW">1º DAW</option>
+            <option value="2DAW">2º DAW</option>
+        </select>
+        <br>
+        <select name="asignaturas" id="asignaturas">
+            <option value="-">-</option>
+        </select>
+    </form>
+
+    <script>
+        var primeroDaw = new Array("PRO", "ETS", "LND", "BAE", "FOL", "ING", "SSF");
+        var segundoDaw = new Array("DSW", "DPL", "DEW", "DOR", "EMR", "FCT", "PRO");
+
+        function cambiarSelect(){
+            var cursoSeleccionado = document.getElementById("curso").selectedIndex;
+            var asignaturas = document.getElementById("asignaturas");
+            
+            if(cursoSeleccionado == 0){
+                asignaturas.options.length = 1;
+            }
+            else if(cursoSeleccionado == 1){
+                asignaturas.options.length = 1;
+
+                for(let i = 0; i < primeroDaw.length; i++){
+                    var option = document.createElement("option");
+                    option.text = primeroDaw[i];
+                    
+                    asignaturas.add(option); 
+                }
+            }
+            else{
+                asignaturas.options.length = 1;
+
+                for(let i = 0; i < segundoDaw.length; i++){
+                    var option = document.createElement("option");
+                    option.text = segundoDaw[i];
+                    
+                    asignaturas.add(option);   
+                } 
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+			#asignaturas{
+				display: none;
+			}
+		</style>
+    </head>
+    <body>
+        <form action="#" name="form" id="form">
+			<select name="curso" id="curso" onchange="gestAsign(this, this.form.asignaturas);">
+				<option value="curso" selected>Seleccione curso...</option>
+				<option value="1DAW">1º DAW</option>
+				<option value="2DAW">2º DAW</option>
+			</select>
+			
+			<select name="asignaturas" id="asignaturas">
+				
+			</select>
+		</form>
+
+		<script>
+			function gestAsign(principal, secundario){
+				const ASIGN = [
+					{ssf: "Sistemas operativos", fol: "Formación y orientación laboral"},
+					{dew: "Desarrollo en entorno cliente", dor: "Diseño de interfaces web"}
+				];
+
+				if(principal.value < 0 || principal.value >= ASIGN.length){
+					// Curso no válido
+					secundario.style.display = "none";
+				}
+				else{
+					secundario.style.display = "block"; // Muestro el secundario
+					secundario.innerHTML = "";
+					for(let asign in ASING[principal.value]){
+						secundario.innerHTML += '<option value="' + asign + '">' + ASIGN[principal.value][asign] + '"</option>';
+					}
+				}
+			}
+		</script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<title>Title</title>
+	<meta charset="utf-8">
+	<!-- Required meta tags -->
+
+	<script>
+		function crearVentana(){
+			// 4 parámetros: url, nombre (_blank, _parent, _self, _top), características, reemplazar 
+			window.open("http://www.google.es", "", "width=100, height=400, resizable=no, scrollbars=yes, location=no");
+			
+			/*let myWin = window.open("", "");
+			myWin.document.write("Probando");
+			myWin.alert("Hola");
+			// myWin.close();*/
+
+			/*let myWin2 = window.open("", "");
+			myWin2.document.write("Probando");
+			myWin2.alert("Hola");
+			//myWin2.close();*/
+		}
+	</script>
+  </head>
+  <body>
+		<button onclick="print()">Imprimir</button>
+		<button onclick="close()">Cerrar</button>
+		<button onclick="window.scrollBy(20, 40)">Moverme</button>
+		<button onclick="crearVentana()">Abrir ventana</button>
+
+		<ul>
+			<script>
+				// Objeto window
+				let obj = window;
+				for(let prop in obj){
+					document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+				}
+
+				 if(confirm("¿Está de acuerdo?")){
+					alert("Aceptaste");
+				}
+				else{
+					alert("Cancelaste");
+				}
+
+				var x = prompt("Indica un valor");
+				alert("El valor de x es " + x);
+			</script>
+		</ul>
+  </body>
+</html>

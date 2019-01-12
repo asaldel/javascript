@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Title</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+	</head>
+	<body> 
+        <button style="position:relative;" onmouseover="this.style.top=400*Math.random()+'px'; this.style.left=400*Math.random()+'px';">¡Cogeme si puedes!</button>
+        <button style="position:relative;" onmouseover='this.style="background-color:red;"' onmouseout='this.style="background-color:blue;"'>¡Cogeme si puedes!</button>
+        <a href="http://www.google.es" onclick='return confirm("¿Quieres ir a Google?")'>Ir a Google</a>
+        <br><br>
+        <span onmouseover="procesarEvento(event)">En un lugar de la mancha...</span>
+        <p>La posición X es: <span id="X"></span></p>
+        <p>La posición Y es: <span id="Y"></span></p>
+    </body>
+    
+    <script>
+        function procesarEvento(e){
+            document.getElementById("X").innerText = e.clientX;
+            document.getElementById("Y").innerText = e.clientY;
+        }
+    </script>
+</html>

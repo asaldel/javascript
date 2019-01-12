@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<form action="#" name="form" id="form">
+			<select name="curso" id="curso" onchange="cambiarSelect(this, this.form.asignaturas);">
+				<option value="-1" selected>Seleccione curso...</option>
+				<option value="0">1º DAW</option>
+				<option value="1">2º DAW</option>
+			</select>
+			<br>
+			<select name="asignaturas" id="asignaturas" style="display:none"></select>
+		</form>
+
+		<script>
+			function cambiarSelect(principal, secundario){
+				const ASIGN = [
+					{fol: "Formación y orientación laboral", ssf: "Sistemas informáticos"},
+					{dew: "Desarrollo en entorno cliente", dor: "Diseño de interfaces web"}
+				];
+
+				if(principal.value < 0 || principal.value >= ASIGN.length){
+					secundario.style.display = "none";
+				}
+				else{
+					secundario.style.display = "block";
+
+					while(secundario.firstChild != null){
+						// Dos formas de borrar:
+						// Borrar directamente desde el hijo
+						// secundario.firstChild.remove();
+						// Borrar pasando por el parentNode primero
+						secundario.remove(secundario.firstChild);
+					}
+
+					for(let asign in ASIGN[principal.value]){
+						/*let option = document.createElement("OPTION");
+						option.setAttribute("value", asign);
+						let optionText = document.createTextNode(ASIGN[principal.value][asign]);
+						option.appendChild(optionText);
+						secundario.appendChild(option);*/
+
+						secundario.options[secundario.options.length] = new Option(ASIGN[principal.value][asign], asign);
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

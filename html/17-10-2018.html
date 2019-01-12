@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+  </head>
+  <body>
+        <!--<ul>
+            <script>
+                // Objeto screen
+                let obj = window.screen;
+                for(let prop in obj){
+                    document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+                }  
+            </script>
+        </ul>-->
+        
+        <!--<ul>
+            <script>
+                // Objeto history
+                let obj = window.history;
+                for(let prop in obj){
+                        document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+                }  
+            </script>
+        </ul>
+        <a href="paginaPrueba.html">Link a otra página</a>
+        <a href="otraPrueba.html">Link a otra página</a>-->
+
+        <!--<ul>
+            <script>
+                // Objeto location
+                let obj = window.location;
+                for(let prop in obj){
+                    document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+                }
+                
+                function mostrarAlert(){
+                    var x = location.search;
+                    var urlModificada = x.substring(1, x.length);
+                    var resultado = urlModificada.split("&");
+                    var resultadoFinal = "";
+                    
+                    for(let i=0; i < resultado.length; i++){
+                        resultadoFinal += resultado[i].replace("=", ": ") + "\n";
+                    }
+                    alert(resultadoFinal);
+                }
+            </script>
+        </ul>
+        <a href="javascript:void(0)" onclick="mostrarAlert()">Probando</a>-->
+
+        <ul>
+            <script>
+                // Objeto window
+                let obj = window;
+                for(let prop in obj){
+                    document.write("<li>" + prop + ": " + obj[prop] + "</li>");
+                }
+            </script>
+        </ul>
+  </body>
+</html>

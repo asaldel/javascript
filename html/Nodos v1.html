@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+        <h3 id="title">Esto es mi texto</h3>
+
+		<script>
+            let span = document.createElement("SPAN");
+            let texto = document.createTextNode("Esto es una prueba");
+            
+            // Añade el span despues del script
+            // document.body.appendChild(span);
+            // span.appendChild(texto);
+            
+            // Añadir el span antes del script
+            // document.body.insertBefore(span, document.scripts[0]);
+            span.appendChild(texto);
+
+            let title = document.getElementById("title");
+            
+            // Añadir elementos
+            // title.insertAdjacentElement("beforebegin", span);
+            // title.insertAdjacentElement("afterbegin", span);
+            // title.insertAdjacentElement("beforeend", span);
+            // title.insertAdjacentElement("afterend", span);
+            
+            // Añadir texto
+            // title.insertAdjacentText("afterend", "Esto es otra prueba");
+            
+            // Añadir HTML
+            title.insertAdjacentHTML("afterend", "<b>Esto es otra prueba</b>");
+        </script>
+	</body>
+</html>

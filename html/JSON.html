@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			/* JSON no permite enviar undefined, function (las hay que mandar como texto y al recuperar hacer un eval) y las fechas (las manda como texto) */
+			let obj = {
+				a:3, 
+				b:2, 
+				str:"Hola", 
+				2:"prb", 
+				c:true,
+				o: {x:1, y:2},
+				array: [5, 3, 2],
+				n: null, 
+				u: undefined,
+				f: function(){return 1},
+				d: new Date(),
+				campos_fecha: 'd',
+				campos_funcion: 'f'
+			};
+			
+			let txt = JSON.stringify(obj);
+			console.log("OBJ: ", typeof obj);
+			console.log("TXT: ", typeof txt);
+			console.log(txt);
+
+			let obj2 = JSON.parse(txt);
+			console.log(obj2);
+			obj2.f = eval(obj2.f);
+			obj2.d = new Date(obj2.d);
+			console.log("OBJ2: ", typeof obj2);
+		</script>
+	</body>
+</html>
